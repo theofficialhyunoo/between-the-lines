@@ -1,0 +1,4941 @@
+body {
+    background-color: #111111;
+    color: #f4efe8;
+    font-family: Georgia, serif;
+
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}h1 {
+    font-size: 64px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 0 0 28px 0;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    font-style: italic;
+    opacity: 0.75;
+    margin: 0;
+}
+
+.enter-link {
+    display: inline-block;
+    margin-top: 38px;
+
+    color: #f4efe8;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-style: normal;
+    letter-spacing: 3px;
+
+    opacity: 0.65;
+
+    border-bottom: 1px solid rgba(244, 239, 232, 0.5);
+    padding-bottom: 6px;
+
+    transition: all 0.4s ease;
+}
+
+.enter-link:hover {
+    opacity: 1;
+    letter-spacing: 4px;
+}
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+
+    background: white;
+    border-radius: 50%;
+
+    opacity: 0.25;
+
+    box-shadow:
+        0 0 4px white,
+        0 0 8px rgba(180, 200, 255, 0.8);
+
+    animation: twinkle 2.5s ease-in-out infinite;
+}
+
+.star {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    background: #ffffff;
+    border-radius: 50%;
+
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+
+    opacity: 0.3;
+
+    animation: twinkle 5s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.15;
+        transform: scale(0.6);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(2.2);
+        box-shadow:
+            0 0 6px white,
+            0 0 14px rgba(190, 210, 255, 1),
+            0 0 24px rgba(140, 160, 255, 0.6);
+    }
+}
+@keyframes drift {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(-15px, -10px) scale(1.03);
+    }
+}
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.38);
+
+    pointer-events: none;
+    z-index: 0;
+
+    filter: blur(50px);
+
+    pointer-events: none;
+    z-index: -2;
+
+    animation: nebula-drift 25s infinite alternate ease-in-out;
+}
+
+@keyframes nebula-drift {
+    0% {
+        transform: translate(-2%, -1%) scale(1);
+    }
+
+    100% {
+        transform: translate(2%, 1%) scale(1.08);
+    }
+}
+h1,
+p,
+.enter-link {
+    position: relative;
+    z-index: 2;
+}
+/* GALAXY / NEBULA */
+
+.nebula {
+    position: fixed;
+    inset: -30%;
+    z-index: -2;
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 35% 65%,
+            rgba(71, 91, 160, 0.35) 0%,
+            rgba(40, 45, 100, 0.18) 25%,
+            transparent 55%
+        ),
+        radial-gradient(
+            ellipse at 65% 35%,
+            rgba(120, 70, 130, 0.28) 0%,
+            rgba(70, 40, 90, 0.15) 30%,
+            transparent 58%
+        ),
+        linear-gradient(
+            135deg,
+            transparent 30%,
+            rgba(100, 110, 170, 0.16) 43%,
+            rgba(190, 150, 160, 0.20) 50%,
+            rgba(75, 85, 150, 0.15) 57%,
+            transparent 70%
+        );
+
+    filter: blur(35px);
+
+    transform: rotate(-12deg) scale(1.15);
+
+    animation: galaxyDrift 30s ease-in-out infinite alternate;
+}
+
+@keyframes galaxyDrift {
+    0% {
+        transform: rotate(-12deg) scale(1.15) translate(-2%, -1%);
+    }
+
+    100% {
+        transform: rotate(-8deg) scale(1.22) translate(2%, 1%);
+    }
+}/* BRIGHT GALACTIC BAND */
+
+.nebula::after {
+    content: "";
+    position: absolute;
+
+    width: 150%;
+    height: 32%;
+
+    left: -25%;
+    top: 34%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255, 230, 210, 0.22) 0%,
+            rgba(150, 120, 180, 0.18) 18%,
+            rgba(70, 90, 160, 0.12) 38%,
+            transparent 70%
+        );
+
+    transform: rotate(-18deg);
+
+    filter: blur(28px);
+
+    opacity: 0.9;
+
+    box-shadow:
+        0 0 80px rgba(100, 120, 200, 0.12),
+        0 0 160px rgba(130, 80, 160, 0.10);
+}
+/* MILKY WAY STAR DUST */
+
+.galaxy-dust {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.dust-star {
+    position: absolute;
+    background: rgba(235, 240, 255, 0.95);
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 2px rgba(255, 255, 255, 0.8),
+        0 0 5px rgba(150, 175, 255, 0.35);
+}
+/* GALAXY DUST SHIMMER */
+
+.dust-star {
+    animation: dustShimmer 4s ease-in-out infinite alternate;
+}
+
+@keyframes dustShimmer {
+    0% {
+        filter: brightness(0.6);
+        transform: scale(0.8);
+    }
+
+    50% {
+        filter: brightness(1.8);
+        transform: scale(1.35);
+    }
+
+    100% {
+        filter: brightness(0.9);
+        transform: scale(1);
+    }
+}
+/* CINEMATIC GLINT STARS */
+
+.glint-stars {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.glint {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+
+    background: white;
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 6px white,
+        0 0 14px rgba(255, 255, 255, 0.9),
+        0 0 28px rgba(190, 205, 255, 0.7);
+
+    opacity: 0;
+
+    animation-name: cinematicGlint;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+/* horizontal light ray */
+
+.glint::before {
+    content: "";
+    position: absolute;
+
+    width: 34px;
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,0.9),
+        transparent
+    );
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+/* vertical light ray */
+
+.glint::after {
+    content: "";
+    position: absolute;
+
+    width: 1px;
+    height: 34px;
+
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255,255,255,0.9),
+        transparent
+    );
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+@keyframes cinematicGlint {
+
+    0%, 70%, 100% {
+        opacity: 0.15;
+        transform: scale(0.5);
+    }
+
+    82% {
+        opacity: 1;
+        transform: scale(1.8);
+    }
+
+    90% {
+        opacity: 0.45;
+        transform: scale(0.8);
+    }
+}
+
+/* =========================================
+   ARCHIVE PAGE
+========================================= */
+
+.archive-page {
+    min-height: 100vh;
+    display: block;
+    overflow-y: auto;
+    padding: 60px 30px 100px;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(100, 79, 135, 0.22),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #08090f,
+            #121225 55%,
+            #090910
+        );
+
+    color: #f4efe8;
+}
+
+.archive-container {
+    width: min(100%, 1000px);
+    margin: 0 auto;
+}
+
+
+/* RETURN LINK */
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 60px;
+
+    color: rgba(244, 239, 232, 0.55);
+    text-decoration: none;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+.back-link:hover {
+    color: #ffffff;
+    transform: translateX(-4px);
+}
+
+
+/* ARCHIVE HEADING */
+
+.archive-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.archive-eyebrow {
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
+
+    color: rgba(244, 239, 232, 0.45);
+}
+
+.archive-header h1 {
+    font-size: clamp(50px, 7vw, 80px);
+    font-weight: normal;
+
+    margin: 0 0 25px;
+}
+
+.archive-intro {
+    font-style: italic;
+    line-height: 1.8;
+
+    color: rgba(244, 239, 232, 0.6);
+}
+
+
+/* =========================================
+   ARCHIVE TILES
+========================================= */
+
+.archive-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px;
+}
+
+
+/* INDIVIDUAL TILE */
+
+.archive-card {
+    position: relative;
+
+    min-height: 260px;
+    padding: 35px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-decoration: none;
+    color: #f4efe8;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.01)
+        );
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+}
+
+
+/* TILE NUMBER */
+
+.card-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    color: rgba(244, 239, 232, 0.35);
+
+    margin-bottom: 40px;
+}
+
+
+/* TILE TITLE */
+
+.archive-card h2 {
+    margin: 0 0 15px;
+
+    font-size: 27px;
+    font-weight: normal;
+
+    color: #f4efe8;
+}
+
+
+/* TILE DESCRIPTION */
+
+.archive-card p {
+    margin: 0;
+
+    line-height: 1.7;
+    font-size: 14px;
+
+    color: rgba(244, 239, 232, 0.5);
+}
+
+
+/* ENTER */
+
+.card-arrow {
+    margin-top: auto;
+    padding-top: 30px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: rgba(244, 239, 232, 0.45);
+
+    transition: 0.3s ease;
+}
+
+
+/* =========================================
+   HOVER EFFECT ✨
+========================================= */
+
+.archive-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(210, 195, 255, 0.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(130, 105, 175, 0.13),
+            rgba(255,255,255,0.025)
+        );
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 35px rgba(145, 120, 190, 0.10);
+}
+
+.archive-card:hover .card-arrow {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+
+/* =========================================
+   PHONE / SMALL SCREEN
+========================================= */
+
+@media (max-width: 700px) {
+
+    .archive-page {
+        padding: 35px 20px 70px;
+    }
+
+    .archive-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .archive-card {
+        min-height: 230px;
+    }
+
+}
+
+/* =========================================
+   LETTERS I NEVER SENT
+========================================= */
+
+.letters-page {
+    display: block;
+    min-height: 100vh;
+    overflow-y: auto;
+
+    padding: 60px 30px 120px;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(87, 72, 115, 0.18),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            #08090e,
+            #0d0d17 55%,
+            #07080c
+        );
+
+    color: #f4efe8;
+}
+
+
+/* MAIN CONTAINER */
+
+.letters-container {
+    width: min(100%, 900px);
+    margin: 0 auto;
+}
+
+
+/* RETURN TO ARCHIVE */
+
+.letters-page .back-link {
+    display: inline-block;
+
+    margin-bottom: 80px;
+
+    color: rgba(244, 239, 232, 0.45);
+    text-decoration: none;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+.letters-page .back-link:hover {
+    color: #ffffff;
+    transform: translateX(-4px);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.letters-header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.letters-eyebrow {
+    margin: 0 0 18px;
+
+    font-size: 11px;
+    letter-spacing: 5px;
+
+    color: rgba(244, 239, 232, 0.4);
+}
+
+.letters-header h1 {
+    margin: 0 0 25px;
+
+    font-size: clamp(48px, 7vw, 82px);
+    font-weight: normal;
+
+    letter-spacing: -2px;
+
+    color: #f4efe8;
+}
+
+.letters-intro {
+    margin: 0;
+
+    font-size: 17px;
+    line-height: 1.8;
+    font-style: italic;
+
+    color: rgba(244, 239, 232, 0.55);
+}
+
+
+/* =========================================
+   LETTER LIST
+========================================= */
+
+.letters-list {
+    width: 100%;
+}
+
+
+/* EACH LETTER */
+
+.letter {
+    position: relative;
+
+    padding: 50px 10px 55px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    transition:
+        padding-left 0.4s ease,
+        background 0.4s ease;
+}
+
+.letter:last-child {
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.12);
+}
+
+
+/* NUMBER + DATE */
+
+.letter-meta {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    color: rgba(244, 239, 232, 0.32);
+}
+
+
+/* LETTER TITLE */
+
+.letter h2 {
+    margin: 0 0 18px;
+
+    font-size: clamp(27px, 4vw, 38px);
+    font-weight: normal;
+
+    color: #f4efe8;
+}
+
+
+/* PREVIEW */
+
+.letter-preview {
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: 15px;
+    line-height: 1.9;
+
+    font-style: italic;
+
+    color: rgba(244, 239, 232, 0.52);
+}
+
+
+/* READ BUTTON */
+
+.read-letter {
+    margin-top: 30px;
+    padding: 0;
+
+    border: none;
+    background: none;
+
+    color: rgba(244, 239, 232, 0.45);
+
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+.letter:hover {
+    padding-left: 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(118, 95, 155, 0.06),
+            transparent 65%
+        );
+}
+
+.letter:hover .read-letter {
+    color: #ffffff;
+    transform: translateX(6px);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .letters-page {
+        padding: 35px 22px 80px;
+    }
+
+    .letters-header {
+        margin-bottom: 65px;
+    }
+
+    .letters-header h1 {
+        letter-spacing: -1px;
+    }
+
+    .letter {
+        padding: 40px 5px;
+    }
+
+    .letter:hover {
+        padding-left: 12px;
+    }
+}
+
+/* =========================================
+   FULL LETTER OVERLAY
+========================================= */
+
+.letter-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(86, 69, 115, 0.18),
+            transparent 40%
+        ),
+        rgba(6, 7, 12, 0.98);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    display: none;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+}
+
+
+/* WHEN THE LETTER IS OPEN */
+
+.letter-overlay.open {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* LETTER ITSELF */
+
+.letter-full {
+    width: min(100% - 50px, 720px);
+    margin: 0 auto;
+
+    padding: 70px 0 120px;
+
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition:
+        opacity 0.8s ease 0.15s,
+        transform 0.8s ease 0.15s;
+}
+
+
+/* GENTLY RISE INTO VIEW */
+
+.letter-overlay.open .letter-full {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* CLOSE */
+
+.close-letter {
+    border: none;
+    background: none;
+    padding: 0;
+
+    margin-bottom: 90px;
+
+    color: rgba(244, 239, 232, 0.45);
+
+    font-family: Georgia, serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.close-letter:hover {
+    color: #ffffff;
+    transform: translateX(-4px);
+}
+
+
+/* NUMBER + DATE */
+
+.full-letter-meta {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 35px;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    color: rgba(244, 239, 232, 0.35);
+}
+
+
+/* LETTER TITLE */
+
+.letter-full h2 {
+    margin: 0 0 70px;
+
+    font-size: clamp(36px, 6vw, 58px);
+    font-weight: normal;
+    line-height: 1.15;
+
+    color: #f4efe8;
+}
+
+
+/* ACTUAL WRITING */
+
+.letter-body {
+    max-width: 620px;
+
+    font-size: 18px;
+    line-height: 2;
+
+    color: rgba(244, 239, 232, 0.76);
+}
+
+.letter-body p {
+    margin: 0 0 32px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .letter-full {
+        width: calc(100% - 40px);
+        padding-top: 40px;
+    }
+
+    .close-letter {
+        margin-bottom: 60px;
+    }
+
+    .letter-full h2 {
+        margin-bottom: 50px;
+    }
+
+    .letter-body {
+        font-size: 16px;
+    }
+}
+/* ==========================================
+   THINGS I COULDN'T SAY
+   ========================================== */
+
+.unsaid-page {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(75, 63, 98, 0.14),
+            transparent 38%
+        ),
+        #06070c;
+
+    color: #f4efe8;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.unsaid-container {
+    width: min(1100px, calc(100% - 60px));
+    margin: 0 auto;
+    padding: 80px 0 140px;
+}
+
+
+/* RETURN */
+
+.unsaid-return {
+    display: inline-block;
+
+    color: rgba(244, 239, 232, 0.45);
+
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.unsaid-return:hover {
+    color: #f4efe8;
+    transform: translateX(-4px);
+}
+
+
+/* HEADER */
+
+.unsaid-header {
+    text-align: center;
+    padding: 100px 20px 110px;
+}
+
+.unsaid-eyebrow {
+    margin-bottom: 28px;
+
+    color: rgba(244, 239, 232, 0.28);
+
+    font-size: 11px;
+    font-style: italic;
+
+    letter-spacing: 7px;
+}
+
+.unsaid-header h1 {
+    margin: 0;
+
+    color: #f4efe8;
+
+    font-size: clamp(50px, 7vw, 86px);
+    font-weight: 500;
+    line-height: 1.05;
+}
+
+.unsaid-intro {
+    margin-top: 35px;
+
+    color: rgba(244, 239, 232, 0.45);
+
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.7;
+}
+
+
+/* CONFESSION GRID */
+
+.unsaid-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+/* INDIVIDUAL TILE */
+
+.unsaid-card {
+    position: relative;
+
+    min-height: 300px;
+
+    padding: 45px 50px;
+
+    border: 1px solid rgba(244, 239, 232, 0.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.025),
+            rgba(255, 255, 255, 0.005)
+        );
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    transition:
+        transform 0.5s ease,
+        border-color 0.5s ease,
+        background 0.5s ease;
+}
+
+.unsaid-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(244, 239, 232, 0.3);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(90, 74, 120, 0.11),
+            rgba(255, 255, 255, 0.015)
+        );
+}
+
+
+/* NUMBER */
+
+.unsaid-number {
+    position: absolute;
+
+    top: 30px;
+    left: 35px;
+
+    color: rgba(244, 239, 232, 0.25);
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+}
+
+
+/* TITLE */
+
+.unsaid-card h2 {
+    margin: 10px 0 20px;
+
+    color: #f4efe8;
+
+    font-size: 27px;
+    font-weight: 500;
+}
+
+
+/* PREVIEW */
+
+.unsaid-card p {
+    max-width: 330px;
+
+    margin: 0;
+
+    color: rgba(244, 239, 232, 0.42);
+
+    font-size: 15px;
+    font-style: italic;
+
+    line-height: 1.8;
+}
+
+
+/* UNCOVER BUTTON */
+
+.unsaid-open {
+    margin-top: 40px;
+
+    padding: 0;
+
+    border: none;
+    background: none;
+
+    color: rgba(244, 239, 232, 0.45);
+
+    font-family: Georgia, serif;
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.unsaid-card:hover .unsaid-open {
+    color: rgba(244, 239, 232, 0.9);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .unsaid-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .unsaid-container {
+        width: min(100% - 30px, 1100px);
+    }
+
+    .unsaid-card {
+        min-height: 260px;
+        padding: 40px 30px;
+    }
+
+}/* =========================================
+   UNSAID THOUGHT REVEAL
+   ========================================= */
+
+.thought-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(86, 69, 115, 0.18),
+            transparent 42%
+        ),
+        rgba(5, 6, 11, 0.98);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+}
+
+
+/* WHEN OPEN */
+
+.thought-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* THOUGHT CONTENT */
+
+.thought-full {
+    width: min(90%, 760px);
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding: 90px 30px 120px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.8s ease 0.15s,
+        transform 0.8s ease 0.15s;
+}
+
+.thought-overlay.open .thought-full {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* CLOSE BUTTON */
+
+.thought-close {
+    border: none;
+    background: none;
+
+    color: rgba(244, 239, 232, 0.5);
+
+    font-family: Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    margin-bottom: 80px;
+
+    transition: 0.3s ease;
+}
+
+.thought-close:hover {
+    color: rgba(244, 239, 232, 1);
+    transform: translateY(-2px);
+}
+
+
+/* NUMBER */
+
+.thought-number {
+    color: rgba(244, 239, 232, 0.35);
+
+    font-size: 11px;
+    letter-spacing: 7px;
+
+    margin-bottom: 30px;
+}
+
+
+/* TITLE */
+
+.thought-full h2 {
+    color: #f4efe8;
+
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 6vw, 70px);
+    font-weight: normal;
+
+    margin: 0 0 65px;
+}
+
+
+/* BODY */
+
+.thought-body {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.thought-body p {
+    color: rgba(244, 239, 232, 0.62);
+
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-style: italic;
+
+    line-height: 1.9;
+
+    margin: 0 0 35px;
+}
+
+.thought-body p:first-child {
+    color: rgba(244, 239, 232, 0.9);
+    font-size: 23px;
+}
+/* ========================================
+   HOW I SEE HER
+======================================== */
+
+.her-page {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            rgba(79, 60, 110, 0.10),
+            transparent 35%
+        ),
+        #080910;
+
+    color: #eee9df;
+}
+
+.her-container {
+    width: min(92%, 1250px);
+    margin: 0 auto;
+    padding: 55px 0 110px;
+}
+
+
+/* HEADER */
+
+.her-header {
+    position: relative;
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.her-header .back-link {
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 5px;
+
+    color: #aaa4ad;
+    text-decoration: none;
+
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    transition: color 0.3s ease;
+}
+
+.her-header .back-link:hover {
+    color: #eee9df;
+}
+
+.section-number {
+    margin-bottom: 14px;
+
+    color: #918a99;
+
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+
+.her-header h1 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 5vw, 67px);
+    font-weight: 400;
+}
+
+.her-intro {
+    margin-top: 18px;
+
+    color: #85808a;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-style: italic;
+
+    line-height: 1.7;
+}
+
+
+/* GRID */
+
+.her-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+
+/* CARD */
+
+.her-card {
+    position: relative;
+
+    min-height: 360px;
+    padding: 34px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border: 1px solid rgba(220, 210, 230, 0.15);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.025),
+            rgba(100,75,130,0.025)
+        );
+
+    transition:
+        transform 0.45s ease,
+        border-color 0.45s ease,
+        background 0.45s ease;
+}
+
+.her-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(174, 148, 205, 0.48);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.035),
+            rgba(110,82,145,0.08)
+        );
+}
+
+.her-number {
+    color: #77717d;
+
+    font-size: 11px;
+    letter-spacing: 5px;
+}
+
+
+/* CARD TEXT */
+
+.her-card-content {
+    margin: auto 0;
+    text-align: center;
+}
+
+.her-card h2 {
+    margin: 0 0 17px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 2.3vw, 34px);
+    font-weight: 400;
+
+    color: #eee9df;
+}
+
+.her-card-content p {
+    margin: 0 auto;
+    max-width: 360px;
+
+    color: #77727c;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+
+    line-height: 1.7;
+}
+
+
+/* ENTER BUTTON */
+
+.her-open {
+    align-self: center;
+
+    border: none;
+    background: transparent;
+
+    color: #aaa4ad;
+
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 4px;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        letter-spacing 0.3s ease;
+}
+
+.her-open:hover {
+    color: #eee9df;
+    letter-spacing: 5px;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1050px) and (min-width: 751px) {
+
+    .her-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .her-container {
+        width: min(90%, 600px);
+        padding-top: 35px;
+    }
+
+    .her-header {
+        padding-top: 45px;
+    }
+
+    .her-header .back-link {
+        top: 0;
+        position: absolute;
+        z-index: 100;
+    }
+
+    .her-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .her-card {
+        min-height: 300px;
+        padding: 34px 27px;
+    }
+
+}
+/* ========================================
+   HOW I SEE HER — PAGE SCROLL FIX
+======================================== */
+
+html {
+    height: auto;
+    min-height: 100%;
+}
+
+body.her-page {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/* QUIET NOTE */
+
+.her-quote {
+    min-height: 360px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.her-quote p {
+    margin: 0;
+
+    color: #77727c;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-style: italic;
+
+    line-height: 1.9;
+    letter-spacing: 2px;
+}
+
+.her-quote span {
+    display: block;
+
+    width: 28px;
+    height: 1px;
+
+    margin-top: 28px;
+
+    background: rgba(238, 233, 223, 0.35);
+}
+/* ========================================
+   HER PRESENCE — IMAGE TILE
+======================================== */
+
+.her-presence-card {
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(6, 7, 12, 0.08) 0%,
+            rgba(6, 7, 12, 0.18) 45%,
+            rgba(6, 7, 12, 0.92) 100%
+        ),
+        url("images/her-presence.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+.her-presence-card .her-card-content {
+    margin-top: auto;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.her-presence-card .her-card-content p {
+    margin-left: 0;
+}
+
+.her-presence-card .her-open {
+    align-self: flex-start;
+}
+/* ========================================
+   HOW I SEE HER — READING OVERLAY
+======================================== */
+
+.her-piece-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+
+    overflow-y: auto;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(82, 65, 105, 0.12),
+            transparent 35%
+        ),
+        rgba(5, 6, 10, 0.985);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.7s ease,
+        visibility 0.7s ease;
+}
+
+
+/* THIS MAKES THE OVERLAY APPEAR */
+
+.her-piece-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* READING AREA */
+
+.her-piece {
+    width: min(88%, 760px);
+    margin: 0 auto;
+    padding: 70px 0 150px;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.8s ease 0.15s,
+        transform 0.8s ease 0.15s;
+}
+
+
+/* FADE CONTENT IN */
+
+.her-piece-overlay.open .her-piece {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* RETURN BUTTON */
+
+.her-piece-close {
+    border: none;
+    background: transparent;
+    padding: 0;
+
+    color: #918b96;
+
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: color 0.3s ease;
+}
+
+.her-piece-close:hover {
+    color: #eee9df;
+}
+
+
+/* HEADER */
+
+.her-piece-header {
+    text-align: center;
+    padding: 110px 0 150px;
+}
+
+.her-piece-number {
+    color: #77717d;
+    font-size: 11px;
+    letter-spacing: 6px;
+}
+
+.her-piece-header h1 {
+    margin: 24px 0 12px;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 7vw, 76px);
+    font-weight: 400;
+}
+
+.her-piece-header p {
+    margin: 0;
+
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-style: italic;
+}
+
+
+/* ========================================
+   HER PRESENCE — WRITING
+======================================== */
+
+.presence-writing {
+    text-align: center;
+}
+
+.presence-small {
+    max-width: 480px;
+    margin: 0 auto 130px;
+
+    color: #77727c;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+
+    line-height: 2;
+}
+
+.presence-main {
+    max-width: 600px;
+    margin: 0 auto 150px;
+
+    color: #c8c2ba;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(20px, 2.5vw, 27px);
+
+    line-height: 1.8;
+}
+
+.presence-emphasis {
+    margin: 190px auto;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(37px, 5vw, 58px);
+    font-style: italic;
+
+    line-height: 1.35;
+}
+
+.presence-final {
+    margin: 210px auto 40px;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 82px);
+    font-style: italic;
+}
+
+.presence-ending {
+    margin: 0 auto 120px;
+
+    color: #77727c;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+/* ========================================
+   THE LITTLE THINGS — IMAGE TILE
+======================================== */
+
+.little-things-card {
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(6, 7, 12, 0.05) 0%,
+            rgba(6, 7, 12, 0.18) 42%,
+            rgba(6, 7, 12, 0.94) 100%
+        ),
+        url("images/little-things.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+
+/* Move the text toward the bottom like Her Presence */
+
+.little-things-card .her-card-content {
+    margin-top: auto;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.little-things-card .her-card-content p {
+    margin-left: 0;
+}
+
+.little-things-card .her-open {
+    align-self: flex-start;
+}
+/* ========================================
+   002 — THE LITTLE THINGS
+======================================== */
+
+.little-things-header {
+    text-align: center;
+    padding: 100px 0 80px;
+}
+
+.little-things-header h1 {
+    margin: 24px 0 12px;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 7vw, 76px);
+    font-weight: 400;
+}
+
+.little-things-header > p {
+    margin: 0;
+
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-style: italic;
+}
+
+
+/* PHOTO */
+
+.little-things-photo {
+    position: relative;
+
+    width: min(100%, 620px);
+    height: 360px;
+
+    margin: 75px auto 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(238, 233, 223, 0.12);
+}
+
+.little-things-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(0.72);
+}
+
+.little-things-photo::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 50%,
+            rgba(7, 8, 13, 0.65) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* FRAGMENTS */
+
+.little-things-list {
+    width: min(100%, 720px);
+    margin: 0 auto;
+    padding: 80px 0 140px;
+}
+
+.little-fragment {
+    position: relative;
+
+    width: min(82%, 480px);
+
+    margin-bottom: 150px;
+
+    padding-left: 28px;
+
+    border-left: 1px solid rgba(238, 233, 223, 0.15);
+}
+
+.little-left {
+    margin-right: auto;
+}
+
+.little-right {
+    margin-left: auto;
+
+    padding-left: 0;
+    padding-right: 28px;
+
+    border-left: none;
+    border-right: 1px solid rgba(238, 233, 223, 0.15);
+
+    text-align: right;
+}
+
+
+.little-number {
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #67616c;
+
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+
+.little-fragment h2 {
+    margin: 0 0 16px;
+
+    color: #e9e3da;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(25px, 3vw, 35px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.3;
+}
+
+
+.little-fragment p {
+    margin: 0;
+
+    color: #817b84;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+
+    line-height: 1.9;
+}
+
+
+/* ENDING */
+
+.little-things-ending {
+    padding: 130px 0 100px;
+
+    text-align: center;
+}
+
+.little-things-ending > span {
+    display: block;
+
+    margin-bottom: 70px;
+
+    color: #68626d;
+
+    font-size: 11px;
+}
+
+.little-things-ending > p {
+    margin: 0 auto 55px;
+
+    color: #918a93;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-style: italic;
+
+    line-height: 1.9;
+}
+
+.little-things-ending .little-ending-small {
+    margin-bottom: 90px;
+
+    color: #65606a;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+.little-things-ending h2 {
+    margin: 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.4;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .little-things-photo {
+        height: 300px;
+    }
+
+    .little-fragment {
+        width: 90%;
+        margin-bottom: 110px;
+    }
+
+    .little-right {
+        margin-left: auto;
+    }
+
+}
+/* ========================================
+   THE KIND OF PERSON SHE IS — IMAGE TILE
+======================================== */
+
+.kind-person-card {
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(6, 7, 12, 0.05) 0%,
+            rgba(6, 7, 12, 0.18) 42%,
+            rgba(6, 7, 12, 0.94) 100%
+        ),
+        url("images/kind-of-person.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+.kind-person-card .her-card-content {
+    margin-top: auto;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.kind-person-card .her-card-content p {
+    margin-left: 0;
+}
+
+.kind-person-card .her-open {
+    align-self: flex-start;
+}
+
+/* ========================================
+   003 — THE KIND OF PERSON SHE IS
+   CHARACTER PORTRAIT
+======================================== */
+
+
+/* HEADER */
+
+.portrait-header {
+    padding: 100px 0 110px;
+    text-align: center;
+}
+
+.portrait-eyebrow {
+    margin: 22px 0 28px;
+
+    color: #625d67;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-style: italic;
+
+    letter-spacing: 3px;
+}
+
+.portrait-header h1 {
+    margin: 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 7vw, 78px);
+    font-weight: 400;
+
+    line-height: 1.05;
+}
+
+.portrait-subtitle {
+    margin: 30px 0 0;
+
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+
+    letter-spacing: 1px;
+}
+
+
+/* IMAGE */
+
+.portrait-image {
+    position: relative;
+
+    width: min(100%, 720px);
+    height: 480px;
+
+    margin: 0 auto 170px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(238, 233, 223, 0.12);
+}
+
+.portrait-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter:
+        brightness(0.68)
+        contrast(1.05);
+}
+
+.portrait-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 40%,
+            rgba(7, 8, 13, 0.82) 100%
+        );
+
+    pointer-events: none;
+}
+
+.portrait-image-caption {
+    position: absolute;
+
+    left: 35px;
+    right: 35px;
+    bottom: 28px;
+
+    z-index: 2;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.portrait-image-caption span {
+    color: #77717d;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+.portrait-image-caption p {
+    margin: 0;
+
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-style: italic;
+
+    line-height: 1.7;
+    text-align: right;
+}
+
+
+/* OPENING */
+
+.portrait-opening {
+    width: min(100%, 560px);
+
+    margin: 0 auto 220px;
+
+    text-align: center;
+}
+
+.portrait-opening p {
+    margin: 0 0 32px;
+
+    color: #8e8790;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+
+    line-height: 2;
+}
+
+.portrait-opening p:last-child {
+    color: #c4bdb6;
+    font-size: 23px;
+    font-style: italic;
+}
+
+
+/* ========================================
+   CHARACTER TRAITS
+======================================== */
+
+.portrait-trait {
+    width: min(78%, 570px);
+
+    margin-bottom: 230px;
+}
+
+.portrait-left {
+    margin-right: auto;
+}
+
+.portrait-right {
+    margin-left: auto;
+    text-align: right;
+}
+
+.portrait-index {
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #5f5a64;
+
+    font-size: 9px;
+    letter-spacing: 5px;
+}
+
+.portrait-trait h2 {
+    margin: 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 6vw, 76px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1;
+}
+
+.portrait-line {
+    width: 42px;
+    height: 1px;
+
+    margin: 35px 0;
+
+    background: rgba(238, 233, 223, 0.25);
+}
+
+.portrait-right .portrait-line {
+    margin-left: auto;
+}
+
+.portrait-trait > p {
+    margin: 0;
+
+    color: #b5aeb0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+
+    line-height: 1.8;
+}
+
+.portrait-trait .portrait-whisper {
+    margin-top: 28px;
+
+    color: #6f6973;
+
+    font-size: 14px;
+    font-style: italic;
+
+    line-height: 1.9;
+}
+
+
+/* PAUSE */
+
+.portrait-pause {
+    padding: 80px 0 260px;
+
+    text-align: center;
+}
+
+.portrait-pause span {
+    display: block;
+
+    margin-bottom: 65px;
+
+    color: #625d67;
+
+    font-size: 11px;
+}
+
+.portrait-pause p {
+    margin: 0;
+
+    color: #938c94;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    font-style: italic;
+
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   ENDING
+======================================== */
+
+.portrait-ending {
+    width: min(100%, 680px);
+
+    margin: 0 auto;
+
+    padding: 80px 0 190px;
+
+    text-align: center;
+}
+
+.portrait-ending-small {
+    margin: 0 auto 45px;
+
+    color: #716b74;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-style: italic;
+
+    line-height: 1.9;
+}
+
+.portrait-ending-thought {
+    max-width: 540px;
+
+    margin: 120px auto;
+
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+
+    line-height: 1.9;
+}
+
+.portrait-ending-line {
+    width: 1px;
+    height: 90px;
+
+    margin: 0 auto 90px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(238, 233, 223, 0.35)
+        );
+}
+
+.portrait-ending h2 {
+    margin: 0;
+
+    color: #f0ebe2;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(58px, 8vw, 96px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.05;
+}
+
+.portrait-last {
+    margin: 60px 0 0;
+
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-style: italic;
+
+    line-height: 1.9;
+
+    letter-spacing: 1px;
+}
+
+
+/* TINY FOOTER */
+
+.portrait-footer {
+    padding-top: 70px;
+
+    border-top: 1px solid rgba(238, 233, 223, 0.08);
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #48444c;
+
+    font-size: 8px;
+    letter-spacing: 4px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .portrait-image {
+        height: 390px;
+        margin-bottom: 120px;
+    }
+
+    .portrait-image-caption {
+        left: 20px;
+        right: 20px;
+    }
+
+    .portrait-trait {
+        width: 90%;
+        margin-bottom: 160px;
+    }
+
+    .portrait-trait h2 {
+        font-size: 46px;
+    }
+
+    .portrait-opening {
+        margin-bottom: 160px;
+    }
+
+    .portrait-pause {
+        padding-bottom: 180px;
+    }
+
+}
+/* ========================================
+   HER PRESENCE — INSIDE IMAGE
+======================================== */
+
+.presence-inside-image {
+    position: relative;
+
+    width: min(100%, 680px);
+    height: 460px;
+
+    margin: -60px auto 150px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(238, 233, 223, 0.12);
+}
+
+
+.presence-inside-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter:
+        brightness(0.68)
+        contrast(1.05);
+}
+
+
+/* DARK FADE OVER IMAGE */
+
+.presence-inside-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 45%,
+            rgba(7, 8, 13, 0.82) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* LITTLE CAPTION */
+
+.presence-image-caption {
+    position: absolute;
+
+    left: 32px;
+    right: 32px;
+    bottom: 28px;
+
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 30px;
+}
+
+
+.presence-image-caption span {
+    color: #77717d;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+
+.presence-image-caption p {
+    margin: 0;
+
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-style: italic;
+
+    line-height: 1.7;
+    text-align: right;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .presence-inside-image {
+        height: 380px;
+        margin-bottom: 110px;
+    }
+
+    .presence-image-caption {
+        left: 20px;
+        right: 20px;
+    }
+
+}
+/* ========================================
+   HER PRESENCE — IMAGE SIZE
+======================================== */
+
+.presence-photo {
+    position: relative;
+    width: min(100%, 620px);
+    height: 360px;
+    margin: 75px auto 150px;
+    overflow: hidden;
+    border: 1px solid rgba(238, 233, 223, 0.12);
+}
+
+.presence-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.72);
+}
+
+@media (max-width: 750px) {
+    .presence-photo {
+        height: 300px;
+    }
+}
+/* ========================================
+   004 — WHAT I WISH FOR HER
+======================================== */
+
+.wish-piece {
+    width: min(88%, 900px);
+}
+
+
+/* HEADER */
+
+.wish-header {
+    padding: 110px 0 190px;
+    text-align: center;
+}
+
+.wish-eyebrow {
+    margin: 25px 0 35px;
+
+    color: #5f5963;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-style: italic;
+
+    letter-spacing: 4px;
+}
+
+.wish-header h1 {
+    margin: 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(55px, 8vw, 92px);
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+.wish-subtitle {
+    margin: 35px 0 0;
+
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+
+/* OPENING */
+
+.wish-opening {
+    width: min(100%, 570px);
+
+    margin: 0 auto 260px;
+
+    text-align: center;
+}
+
+.wish-opening > p:first-child {
+    color: #e7e0d8;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 4vw, 45px);
+    font-style: italic;
+
+    line-height: 1.5;
+}
+
+.wish-opening > span {
+    display: block;
+
+    width: 1px;
+    height: 70px;
+
+    margin: 65px auto;
+
+    background: rgba(238, 233, 223, 0.2);
+}
+
+.wish-opening-small {
+    color: #68626d !important;
+
+    font-size: 14px !important;
+
+    line-height: 2;
+}
+
+.wish-opening > p:last-child {
+    margin-top: 70px;
+
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+
+    line-height: 2;
+}
+
+
+/* CHAPTERS */
+
+.wish-chapter {
+    width: min(78%, 570px);
+
+    margin-bottom: 250px;
+}
+
+.wish-left {
+    margin-right: auto;
+}
+
+.wish-right {
+    margin-left: auto;
+
+    text-align: right;
+}
+
+.wish-number {
+    display: block;
+
+    margin-bottom: 22px;
+
+    color: #504b54;
+
+    font-size: 9px;
+    letter-spacing: 5px;
+}
+
+.wish-label {
+    margin: 0 0 20px;
+
+    color: #6c6670;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+}
+
+.wish-chapter h2 {
+    margin: 0 0 45px;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 6vw, 75px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.05;
+}
+
+.wish-chapter > p:not(.wish-label):not(.wish-soft) {
+    color: #b5aeb0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+
+    line-height: 1.9;
+}
+
+.wish-soft {
+    margin-top: 35px;
+
+    color: #716b74;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+
+    line-height: 2;
+}
+
+
+/* LOVE */
+
+.wish-love {
+    margin: 300px auto;
+
+    text-align: center;
+}
+
+.wish-love h2 {
+    margin: 15px 0 50px;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(70px, 10vw, 120px);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.wish-love > p:not(.wish-label):not(.wish-love-final) {
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+}
+
+.wish-love-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+
+    margin: 90px 0;
+
+    color: #615b65;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.wish-love-final {
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 6vw, 67px);
+    font-style: italic;
+
+    line-height: 1.3;
+}
+
+
+/* DREAMS */
+
+.wish-dreams {
+    padding: 80px 0 300px;
+
+    text-align: center;
+}
+
+.wish-dreams > span {
+    color: #625d67;
+}
+
+.wish-dreams > p {
+    max-width: 620px;
+
+    margin: 70px auto 0;
+
+    color: #d0c9c1;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(28px, 4vw, 43px);
+    font-style: italic;
+
+    line-height: 1.5;
+}
+
+.wish-dreams .wish-dreams-small {
+    margin-top: 40px;
+
+    color: #68626d;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+}
+
+
+/* BIG WISH */
+
+.wish-big {
+    padding: 160px 0 300px;
+
+    text-align: center;
+}
+
+.wish-big > p:first-child {
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.wish-big h2 {
+    margin: 60px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 7vw, 82px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.2;
+}
+
+.wish-big-line {
+    width: 1px;
+    height: 100px;
+
+    margin: 90px auto;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(238, 233, 223, 0.3),
+            transparent
+        );
+}
+
+.wish-big-description {
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+
+    line-height: 2.2;
+}
+
+
+/* DISTANCE */
+
+.wish-distance {
+    width: min(100%, 600px);
+
+    margin: 0 auto;
+
+    padding: 130px 0 300px;
+
+    text-align: center;
+}
+
+.wish-distance > p:first-child {
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-style: italic;
+
+    line-height: 1.8;
+}
+
+.wish-distance-details {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+
+    margin: 80px 0;
+
+    color: #5e5962;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.wish-okay {
+    color: #ddd6cf;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    font-style: italic;
+}
+
+
+/* CORE */
+
+.wish-core {
+    padding: 120px 0 330px;
+
+    text-align: center;
+}
+
+.wish-core > p:first-child {
+    color: #8e8790;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+.wish-core h2 {
+    margin: 70px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.2;
+}
+
+.wish-star {
+    display: block;
+
+    margin: 110px 0;
+
+    color: #625d67;
+}
+
+.wish-everything {
+    margin: 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(55px, 8vw, 90px);
+    font-style: italic;
+}
+
+.wish-everything-small {
+    margin-top: 40px;
+
+    color: #6f6973;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+
+    line-height: 2;
+}
+
+
+/* ENDING */
+
+.wish-ending {
+    padding: 100px 0 230px;
+
+    text-align: center;
+}
+
+.wish-ending-intro {
+    color: #625d67 !important;
+
+    font-size: 14px !important;
+    font-style: italic;
+}
+
+.wish-ending > p {
+    margin: 50px 0;
+
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+
+    line-height: 1.9;
+}
+
+.wish-ending h2 {
+    margin: 100px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(55px, 8vw, 90px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.15;
+}
+
+.wish-smile {
+    color: #8d868e !important;
+
+    font-style: italic;
+}
+
+.wish-final-line {
+    width: 45px;
+    height: 1px;
+
+    margin: 110px auto;
+
+    background: rgba(238, 233, 223, 0.25);
+}
+
+.wish-made-it {
+    color: #77717d !important;
+
+    font-size: 15px !important;
+}
+
+.wish-deserve {
+    margin-top: 35px !important;
+
+    color: #eee9df !important;
+
+    font-size: clamp(35px, 5vw, 55px) !important;
+    font-style: italic;
+}
+
+
+/* FOOTER */
+
+.wish-footer {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 50px 0;
+
+    border-top: 1px solid rgba(238, 233, 223, 0.08);
+
+    color: #454149;
+
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .wish-header {
+        padding-bottom: 140px;
+    }
+
+    .wish-chapter {
+        width: 90%;
+        margin-bottom: 180px;
+    }
+
+    .wish-love {
+        margin: 220px auto;
+    }
+
+    .wish-core {
+        padding-bottom: 230px;
+    }
+
+    .wish-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+/* ========================================
+   WHAT I WISH FOR HER — IMAGE
+======================================== */
+
+.wish-photo {
+    position: relative;
+
+    width: min(100%, 620px);
+    height: 360px;
+
+    margin: 0 auto 180px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(238, 233, 223, 0.12);
+}
+
+.wish-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(0.72);
+}
+
+
+/* subtle darkness at bottom */
+
+.wish-photo::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 45%,
+        rgba(6, 7, 12, 0.72) 100%
+    );
+
+    pointer-events: none;
+}
+
+
+/* little caption */
+
+.wish-photo-caption {
+    position: absolute;
+
+    left: 28px;
+    right: 28px;
+    bottom: 24px;
+
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.wish-photo-caption span {
+    color: rgba(238, 233, 223, 0.45);
+
+    font-size: 8px;
+    letter-spacing: 4px;
+}
+
+.wish-photo-caption p {
+    margin: 0;
+
+    color: rgba(238, 233, 223, 0.75);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    font-style: italic;
+
+    letter-spacing: 1px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .wish-photo {
+        height: 300px;
+        margin-bottom: 130px;
+    }
+
+}
+
+/* ========================================
+   004 — WHAT I WISH FOR HER TILE
+======================================== */
+
+.wish-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(6, 7, 12, 0.08) 20%,
+            rgba(6, 7, 12, 0.25) 48%,
+            rgba(6, 7, 12, 0.94) 100%
+        ),
+        url("images/what-i-wish-for-her.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ========================================
+   004 — BOTTOM LEFT TEXT
+======================================== */
+
+.wish-card .her-card-content {
+    position: absolute;
+
+    left: 42px;
+    right: 42px;
+    bottom: 105px;
+
+    text-align: left;
+}
+
+.wish-card .her-card-content h2 {
+    margin: 0 0 18px;
+
+    text-align: left;
+}
+
+.wish-card .her-card-content p {
+    margin: 0;
+
+    text-align: left;
+}
+
+
+/* ENTER BUTTON */
+
+.wish-card .her-open {
+    position: absolute;
+
+    left: 42px;
+    bottom: 42px;
+
+    margin: 0;
+}
+
+/* ========================================
+   005 — US, SOMEDAY TILE
+======================================== */
+
+.someday-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(6, 7, 12, 0.04) 15%,
+            rgba(6, 7, 12, 0.18) 45%,
+            rgba(6, 7, 12, 0.78) 75%,
+            rgba(6, 7, 12, 0.97) 100%
+        ),
+        url("images/us-someday.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* BOTTOM LEFT TEXT */
+
+.someday-card .her-card-content {
+    position: absolute;
+
+    left: 42px;
+    right: 42px;
+    bottom: 105px;
+
+    text-align: left;
+}
+
+.someday-card .her-card-content h2,
+.someday-card .her-card-content p {
+    text-align: left;
+}
+
+.someday-card .her-open {
+    position: absolute;
+
+    left: 42px;
+    bottom: 42px;
+
+    margin: 0;
+}
+
+/* ========================================
+   005 — US, SOMEDAY
+======================================== */
+
+.someday-piece {
+    width: min(88%, 900px);
+}
+
+
+/* HEADER */
+
+.someday-header {
+    padding: 110px 0 120px;
+    text-align: center;
+}
+
+.someday-eyebrow {
+    color: #625c67;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-style: italic;
+
+    letter-spacing: 3px;
+}
+
+.someday-header h1 {
+    margin: 30px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(60px, 9vw, 100px);
+    font-weight: 400;
+}
+
+.someday-subtitle {
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+/* IMAGE */
+
+.someday-photo {
+    position: relative;
+
+    width: min(100%, 620px);
+    height: 360px;
+
+    margin: 0 auto 220px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(238, 233, 223, 0.12);
+}
+
+.someday-photo img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(0.72);
+}
+
+.someday-photo::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 45%,
+            rgba(6, 7, 12, 0.78) 100%
+        );
+
+    pointer-events: none;
+}
+
+.someday-photo-caption {
+    position: absolute;
+
+    left: 28px;
+    right: 28px;
+    bottom: 24px;
+
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.someday-photo-caption span,
+.someday-photo-caption p {
+    margin: 0;
+
+    color: rgba(238, 233, 223, 0.65);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-style: italic;
+
+    letter-spacing: 1px;
+}
+
+
+/* OPENING */
+
+.someday-opening {
+    width: min(100%, 650px);
+
+    margin: 0 auto 280px;
+
+    text-align: center;
+}
+
+.someday-small {
+    color: #66606a;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.someday-opening h2 {
+    margin: 65px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(45px, 6vw, 70px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.25;
+}
+
+.someday-opening > p:not(.someday-small):not(.someday-whisper) {
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+
+    line-height: 2.1;
+}
+
+.someday-whisper {
+    margin-top: 100px;
+
+    color: #bbb4ad;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    font-style: italic;
+
+    line-height: 1.8;
+}
+
+
+/* SCENES */
+
+.someday-scene {
+    width: min(78%, 570px);
+
+    margin: 0 auto 280px 0;
+}
+
+.someday-right {
+    margin-left: auto;
+    margin-right: 0;
+
+    text-align: right;
+}
+
+.someday-scene > span {
+    color: #514c56;
+
+    font-size: 9px;
+    letter-spacing: 5px;
+}
+
+.someday-label {
+    margin-top: 22px;
+
+    color: #69636d !important;
+
+    font-size: 9px !important;
+    letter-spacing: 5px;
+}
+
+.someday-scene h2 {
+    margin: 35px 0 55px;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(45px, 6vw, 68px);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.someday-scene p {
+    color: #89828a;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+
+/* SAME PLACE */
+
+.someday-center {
+    margin: 320px auto;
+
+    text-align: center;
+}
+
+.someday-center > p:first-child {
+    color: #67616a;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.someday-center h2 {
+    margin: 70px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(55px, 8vw, 90px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.15;
+}
+
+.someday-soft {
+    color: #746e77;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+
+/* POSSIBILITY */
+
+.someday-possibility {
+    padding: 100px 0 320px;
+
+    text-align: center;
+}
+
+.someday-possibility > p:first-child {
+    color: #716a74;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    font-style: italic;
+}
+
+.someday-possibility h2 {
+    margin: 65px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 80px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.2;
+}
+
+.someday-line {
+    width: 1px;
+    height: 100px;
+
+    margin: 100px auto;
+
+    background: rgba(238, 233, 223, 0.18);
+}
+
+.someday-possibility p {
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+
+    line-height: 2;
+}
+
+.someday-emphasis {
+    margin-top: 65px !important;
+
+    color: #d8d1ca !important;
+
+    font-size: clamp(30px, 4vw, 45px) !important;
+    font-style: italic;
+
+    line-height: 1.5 !important;
+}
+
+
+/* ENDING */
+
+.someday-ending {
+    padding: 100px 0 230px;
+
+    text-align: center;
+}
+
+.someday-ending > p {
+    margin: 50px 0;
+
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+
+    line-height: 2;
+}
+
+.someday-ending h2 {
+    margin: 80px auto;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(45px, 6vw, 68px);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.someday-ending > span {
+    display: block;
+
+    margin: 120px 0;
+
+    color: #5e5963;
+}
+
+.someday-final {
+    color: #69636c !important;
+
+    font-style: italic;
+}
+
+.someday-ending h3 {
+    margin: 60px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.3;
+}
+
+
+/* FOOTER */
+
+.someday-footer {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 50px 0;
+
+    border-top: 1px solid rgba(238, 233, 223, 0.08);
+
+    color: #454149;
+
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .someday-photo {
+        height: 300px;
+        margin-bottom: 160px;
+    }
+
+    .someday-scene {
+        width: 90%;
+    }
+
+    .someday-center {
+        margin: 220px auto;
+    }
+
+    .someday-footer {
+        flex-direction: column;
+        gap: 20px;
+
+        text-align: center;
+    }
+
+}
+/* ========================================
+   ARCHIVE — LETTERS I NEVER SENT
+======================================== */
+
+.letters-archive-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(6, 7, 12, 0.08) 10%,
+            rgba(6, 7, 12, 0.20) 40%,
+            rgba(6, 7, 12, 0.72) 72%,
+            rgba(6, 7, 12, 0.96) 100%
+        ),
+        url("images/letters-i-never-sent.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* ========================================
+   ARCHIVE — THINGS I COULDN'T SAY
+======================================== */
+
+.unsaid-archive-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(6, 7, 12, 0.08) 10%,
+            rgba(6, 7, 12, 0.20) 40%,
+            rgba(6, 7, 12, 0.72) 72%,
+            rgba(6, 7, 12, 0.96) 100%
+        ),
+        url("images/things-i-couldnt-say.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* ========================================
+   ARCHIVE — HOW I SEE HER
+======================================== */
+
+.her-archive-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(6, 7, 12, 0.08) 10%,
+            rgba(6, 7, 12, 0.20) 40%,
+            rgba(6, 7, 12, 0.72) 72%,
+            rgba(6, 7, 12, 0.96) 100%
+        ),
+        url("images/how-i-see-her.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ========================================
+   ARCHIVE — UNDER THE SAME SKY
+======================================== */
+
+.sky-archive-card {
+    position: relative;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(6, 7, 12, 0.08) 10%,
+            rgba(6, 7, 12, 0.20) 40%,
+            rgba(6, 7, 12, 0.72) 72%,
+            rgba(6, 7, 12, 0.96) 100%
+        ),
+        url("images/under-the-same-sky.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ========================================
+   UNDER THE SAME SKY
+======================================== */
+
+.sky-page {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(73, 61, 98, 0.12),
+            transparent 35%
+        ),
+        #06070c;
+
+    color: #eee9df;
+}
+
+.sky-container {
+    width: min(88%, 960px);
+    margin: 0 auto;
+    padding: 0 0 60px;
+}
+
+
+/* NAV */
+
+.sky-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 45px 0;
+
+    color: #59545e;
+
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.sky-back {
+    color: #77717d;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.sky-back:hover {
+    color: #eee9df;
+}
+
+
+/* HERO */
+
+.sky-hero {
+    padding: 100px 0 140px;
+    text-align: center;
+}
+
+.sky-number {
+    color: #57515c;
+
+    font-size: 9px;
+    letter-spacing: 5px;
+}
+
+.sky-eyebrow {
+    margin: 30px 0;
+
+    color: #69636e;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-style: italic;
+
+    letter-spacing: 3px;
+}
+
+.sky-hero h1 {
+    margin: 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(65px, 10vw, 115px);
+    font-weight: 400;
+
+    line-height: 0.95;
+}
+
+.sky-subtitle {
+    margin-top: 45px;
+
+    color: #817a83;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+
+    line-height: 1.8;
+}
+
+
+/* MAIN IMAGE */
+
+.sky-image {
+    position: relative;
+
+    width: min(100%, 760px);
+    height: 440px;
+
+    margin: 0 auto 240px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(238, 233, 223, 0.1);
+}
+
+.sky-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: brightness(0.72) contrast(1.05);
+}
+
+.sky-image::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 40%,
+            rgba(6, 7, 12, 0.88) 100%
+        );
+
+    pointer-events: none;
+}
+
+.sky-image figcaption {
+    position: absolute;
+
+    left: 30px;
+    right: 30px;
+    bottom: 28px;
+
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    color: #aaa3a6;
+}
+
+.sky-image figcaption span {
+    font-size: 9px;
+    letter-spacing: 4px;
+}
+
+.sky-image figcaption p {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+    font-style: italic;
+
+    line-height: 1.7;
+    text-align: right;
+}
+
+
+/* THREAD */
+
+.sky-thread {
+    width: 1px;
+    height: 100px;
+
+    margin: 75px auto;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(238, 233, 223, 0.25),
+            transparent
+        );
+}
+
+
+/* INTRO */
+
+.sky-intro {
+    width: min(100%, 650px);
+
+    margin: 0 auto 260px;
+
+    text-align: center;
+}
+
+.sky-intro > p:first-child {
+    margin: 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(35px, 5vw, 55px);
+    font-style: italic;
+
+    line-height: 1.45;
+}
+
+.sky-intro-small {
+    color: #817a83;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+
+    line-height: 2;
+}
+
+
+/* SUN / MOON */
+
+.sky-orbit {
+    display: grid;
+    grid-template-columns: 1fr 170px 1fr;
+    align-items: center;
+
+    margin: 0 0 300px;
+}
+
+.sky-orbit-item {
+    text-align: center;
+}
+
+.sky-symbol {
+    display: block;
+
+    margin-bottom: 35px;
+
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+}
+
+.sky-orbit-item p {
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+
+    line-height: 1.8;
+}
+
+.sky-orbit-line {
+    display: flex;
+    align-items: center;
+}
+
+.sky-orbit-line::before,
+.sky-orbit-line::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(238, 233, 223, 0.2)
+        );
+}
+
+.sky-orbit-line::after {
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            rgba(238, 233, 223, 0.2)
+        );
+}
+
+.sky-orbit-line span {
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #aaa3a6;
+}
+
+
+/* DIFFERENT WORLDS */
+
+.sky-worlds {
+    padding: 80px 0 300px;
+
+    text-align: center;
+}
+
+.sky-worlds > p:first-child {
+    color: #8c858d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+}
+
+.sky-world-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin: 80px 0 150px;
+
+    color: #55505a;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.sky-and-yet {
+    color: #6f6973;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.sky-worlds h2 {
+    margin: 55px 0 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 85px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.15;
+}
+
+
+/* CHAPTERS */
+
+.sky-chapter {
+    width: min(80%, 590px);
+
+    margin-bottom: 300px;
+}
+
+.sky-chapter-left {
+    margin-right: auto;
+}
+
+.sky-chapter-right {
+    margin-left: auto;
+
+    text-align: right;
+}
+
+.sky-chapter-number {
+    color: #504b55;
+
+    font-size: 9px;
+    letter-spacing: 5px;
+}
+
+.sky-chapter-label {
+    margin: 22px 0 35px !important;
+
+    color: #69636d !important;
+
+    font-size: 9px !important;
+
+    letter-spacing: 5px;
+}
+
+.sky-chapter h2 {
+    margin: 0 0 60px;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(43px, 6vw, 68px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.2;
+}
+
+.sky-chapter > p {
+    margin: 28px 0;
+
+    color: #89828a;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+.sky-chapter blockquote {
+    margin: 80px 0 40px;
+    padding: 0;
+
+    border: 0;
+
+    color: #cbc4bd;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-style: italic;
+
+    line-height: 1.6;
+}
+
+.sky-soft {
+    color: #68626c !important;
+
+    font-size: 14px !important;
+    font-style: italic;
+}
+
+
+/* SMALL THINGS */
+
+.sky-small-things {
+    display: flex;
+    flex-direction: column;
+
+    gap: 17px;
+
+    margin-top: 60px;
+
+    color: #625c66;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+
+/* THOUGHT */
+
+.sky-thought {
+    padding: 80px 0 330px;
+
+    text-align: center;
+}
+
+.sky-thought > span {
+    color: #5e5862;
+}
+
+.sky-thought > p {
+    max-width: 520px;
+
+    margin: 80px auto;
+
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+
+    line-height: 2;
+}
+
+.sky-thought h2 {
+    margin: 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(65px, 10vw, 115px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1;
+}
+
+.sky-thought-small {
+    color: #5e5862 !important;
+
+    font-size: 13px !important;
+    font-style: italic;
+}
+
+
+/* FOUR LINES */
+
+.sky-four-lines {
+    padding: 60px 0 320px;
+
+    text-align: center;
+}
+
+.sky-four-lines p {
+    margin: 22px 0;
+
+    color: #625c66;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.sky-four-lines span {
+    display: block;
+
+    width: 1px;
+    height: 90px;
+
+    margin: 80px auto;
+
+    background: rgba(238, 233, 223, 0.2);
+}
+
+.sky-four-lines h2 {
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.2;
+}
+
+
+/* DISTANCE */
+
+.sky-distance {
+    padding: 120px 0 330px;
+
+    text-align: center;
+}
+
+.sky-distance-label {
+    color: #5e5862;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+}
+
+.sky-distance h2 {
+    margin: 35px 0 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(100px, 17vw, 190px);
+    font-weight: 400;
+
+    line-height: 0.9;
+}
+
+.sky-km {
+    margin-top: 30px;
+
+    color: #716a74;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+}
+
+.sky-route {
+    display: grid;
+    grid-template-columns: 120px 1fr 120px;
+    align-items: center;
+
+    gap: 25px;
+
+    margin: 120px auto;
+
+    max-width: 750px;
+}
+
+.sky-route > div:first-child,
+.sky-route > div:last-child {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.sky-route strong {
+    color: #d7d0c8;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.sky-route > div > span {
+    color: #59535d;
+
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.sky-route-line {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.sky-route-line span {
+    flex: 1;
+    height: 1px;
+
+    background: rgba(238, 233, 223, 0.16);
+}
+
+.sky-route-line i {
+    color: #817a83;
+
+    font-size: 9px;
+    font-style: normal;
+}
+
+.sky-map-text {
+    margin-top: 130px;
+
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-style: italic;
+}
+
+.sky-map-list {
+    display: flex;
+    justify-content: center;
+
+    gap: 50px;
+
+    margin: 70px 0;
+
+    color: #625c66;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.sky-distance-copy {
+    max-width: 520px;
+
+    margin: 0 auto;
+
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+
+    line-height: 2;
+}
+
+
+/* BORDERLESS */
+
+.sky-borderless {
+    padding: 100px 0 350px;
+
+    text-align: center;
+}
+
+.sky-star {
+    display: block;
+
+    margin-bottom: 100px;
+
+    color: #5e5862;
+}
+
+.sky-borderless > p {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: #aaa3a6;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    font-style: italic;
+
+    line-height: 1.7;
+}
+
+.sky-borderless-small {
+    margin-top: 40px !important;
+
+    color: #625c66 !important;
+
+    font-size: 14px !important;
+}
+
+.sky-borderless h2 {
+    margin: 80px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 82px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.2;
+}
+
+.sky-near {
+    color: #817a83 !important;
+
+    font-size: 18px !important;
+}
+
+
+/* SOMEDAY */
+
+.sky-someday {
+    padding: 120px 0 350px;
+
+    text-align: center;
+}
+
+.sky-someday-label {
+    color: #59535d;
+
+    font-size: 9px;
+
+    letter-spacing: 6px;
+}
+
+.sky-someday > h2 {
+    margin: 30px 0 80px;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(90px, 14vw, 155px);
+    font-weight: 400;
+    font-style: italic;
+}
+
+.sky-someday > p:not(.sky-someday-label) {
+    color: #8d868e;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+
+    line-height: 2;
+}
+
+.sky-someday-lines {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+
+    margin: 100px 0;
+
+    color: #66606a;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.sky-someday-core {
+    margin-top: 170px;
+}
+
+.sky-someday-core p {
+    margin: 20px 0;
+
+    color: #77717d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.sky-someday-core h3 {
+    margin: 80px 0 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 7vw, 80px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.2;
+}
+
+
+/* HONESTY */
+
+.sky-honesty {
+    width: min(100%, 700px);
+
+    margin: 0 auto;
+
+    padding: 100px 0 330px;
+
+    text-align: center;
+}
+
+.sky-honesty p {
+    color: #716a74;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-style: italic;
+
+    line-height: 2;
+}
+
+.sky-honesty span {
+    display: block;
+
+    width: 1px;
+    height: 90px;
+
+    margin: 80px auto;
+
+    background: rgba(238, 233, 223, 0.18);
+}
+
+.sky-honesty h2 {
+    margin-top: 70px;
+
+    color: #c9c2bb;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.55;
+}
+
+
+/* ENDING */
+
+.sky-ending {
+    padding: 120px 0 250px;
+
+    text-align: center;
+}
+
+.sky-ending > p {
+    color: #716a74;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 17px;
+
+    line-height: 2;
+}
+
+.sky-until {
+    margin-bottom: 80px !important;
+
+    color: #aaa3a6 !important;
+
+    font-style: italic;
+}
+
+.sky-ending h2 {
+    margin: 90px 0;
+
+    color: #eee9df;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(65px, 10vw, 110px);
+    font-weight: 400;
+    font-style: italic;
+
+    line-height: 1.05;
+}
+
+.sky-ending-star {
+    margin: 150px 0;
+
+    color: #5e5862;
+}
+
+.sky-final {
+    color: #c9c2bb !important;
+
+    font-size: clamp(25px, 4vw, 40px) !important;
+    font-style: italic;
+
+    line-height: 1.6 !important;
+}
+
+.sky-signature {
+    margin-top: 70px !important;
+
+    color: #817a83 !important;
+
+    font-size: 15px !important;
+    font-style: italic;
+
+    letter-spacing: 1px;
+}
+
+
+/* FOOTER */
+
+.sky-footer {
+    display: flex;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 50px 0;
+
+    border-top: 1px solid rgba(238, 233, 223, 0.08);
+
+    color: #454149;
+
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+
+    .sky-container {
+        width: min(88%, 650px);
+    }
+
+    .sky-image {
+        height: 320px;
+        margin-bottom: 170px;
+    }
+
+    .sky-orbit {
+        grid-template-columns: 1fr;
+        gap: 80px;
+    }
+
+    .sky-orbit-line {
+        width: 1px;
+        height: 80px;
+
+        margin: auto;
+
+        background: rgba(238, 233, 223, 0.18);
+    }
+
+    .sky-orbit-line::before,
+    .sky-orbit-line::after,
+    .sky-orbit-line span {
+        display: none;
+    }
+
+    .sky-chapter {
+        width: 92%;
+        margin-bottom: 220px;
+    }
+
+    .sky-route {
+        grid-template-columns: 75px 1fr 75px;
+        gap: 10px;
+    }
+
+    .sky-map-list {
+        gap: 20px;
+    }
+
+    .sky-footer {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}
+/* ========================================
+   SKY PAGE — SCROLL FIX
+======================================== */
+
+html,
+body.sky-page {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+}
+
+body.sky-page {
+    position: relative !important;
+}
