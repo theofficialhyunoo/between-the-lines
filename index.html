@@ -1,29 +1,1401 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Between the Lines</title>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>UNSPOKEN — Hyunoo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <div class="stars"></div>
-    <div class="galaxy-dust"></div>
-    <div class="nebula"></div>
-    <div class="glint-stars"></div>
+
+<!-- =========================================
+     BACKGROUND
+========================================= -->
+
+<div class="universe" aria-hidden="true">
+
+    <div class="milkyway milkyway-glow"></div>
+    <div class="milkyway milkyway-main"></div>
+    <div class="milkyway milkyway-core"></div>
+
+    <div class="space-cloud cloud-one"></div>
+    <div class="space-cloud cloud-two"></div>
+
+    <div class="stars stars-one"></div>
+    <div class="stars stars-two"></div>
+
+    <div class="vignette"></div>
+
+</div>
 
 
-    <h1>Between the Lines</h1>
+
+<!-- =========================================
+     01 — LANDING
+========================================= -->
+
+<main
+    id="landingView"
+    class="view landing-view active"
+>
+
+    <header class="site-header">
+
+        <div class="logo">
+            UNSPOKEN
+        </div>
+
+        <div class="header-note">
+            A PLACE FOR WHAT REMAINS UNSAID
+            <span></span>
+        </div>
+
+    </header>
+
+
+    <section class="landing-content">
+
+        <p class="eyebrow">
+            SOME THINGS ARE EASIER WRITTEN THAN SAID
+        </p>
+
+
+        <h1 class="landing-title">
+            UNSPOKEN
+        </h1>
+
+
+        <p class="landing-subtitle">
+            some things never found their way into words.
+        </p>
+
+
+        <div class="small-divider"></div>
+
+
+        <p class="landing-line">
+            So I gave them somewhere to live.
+        </p>
+
+
+        <button
+            id="enterButton"
+            class="enter-button"
+            type="button"
+        >
+            <span>ENTER QUIETLY</span>
+            <span class="arrow">→</span>
+        </button>
+
+    </section>
+
+
+    <div class="landing-bottom landing-bottom-left">
+        STILL HERE.<br>
+        STILL FEELING.
+    </div>
+
+
+    <div class="landing-signature">
+        — HYUNOO —
+    </div>
+
+
+    <div class="landing-bottom landing-bottom-right">
+        A UNIVERSE<br>
+        OF UNSAID THINGS.
+    </div>
+
+</main>
+
+
+
+<!-- =========================================
+     TRANSITION
+========================================= -->
+
+<section
+    id="transitionView"
+    class="transition-view"
+    aria-hidden="true"
+>
+
+    <div class="transition-copy">
+
+        <p>
+            If you found this,
+        </p>
+
+        <p>
+            maybe you were meant to.
+        </p>
+
+        <span>
+            — HYUNOO —
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     02 — ARCHIVE
+========================================= -->
+
+<main
+    id="archiveView"
+    class="view archive-view"
+>
+
+    <header class="archive-header">
+
+        <div class="logo">
+            UNSPOKEN
+        </div>
+
+        <button
+            id="returnBeginning"
+            class="text-button"
+            type="button"
+        >
+            RETURN TO THE BEGINNING
+        </button>
+
+    </header>
+
+
+    <section class="archive-intro">
+
+        <p class="archive-eyebrow">
+            AN ARCHIVE OF THINGS I NEVER SAID
+        </p>
+
+
+        <h2>
+            Some things<br>
+            stayed with me.
+        </h2>
+
+
+        <p class="archive-subtitle">
+            So I left them here.
+        </p>
+
+    </section>
+
+
+    <section class="archive-grid">
+
+
+        <!-- 01 -->
+
+        <button
+            id="openThings"
+            class="archive-card"
+            type="button"
+        >
+
+            <span class="card-number">
+                01
+            </span>
+
+            <div class="card-content">
+
+                <p>
+                    THE WORDS
+                </p>
+
+                <h3>
+                    Things I<br>
+                    Never Said
+                </h3>
+
+                <span class="open-label">
+                    OPEN →
+                </span>
+
+            </div>
+
+        </button>
+
+
+        <!-- 02 -->
+
+        <button
+                 id="openLetters"
+                 class="archive-card"
+                 type="button"
+        >
+
+            <span class="card-number">
+                02
+            </span>
+
+            <div class="card-content">
+
+                <p>
+                    THE LETTERS
+                </p>
+
+                <h3>
+                    Letters I<br>
+                    Never Sent
+                </h3>
+
+                <span class="open-label">
+                    OPEN →
+                </span>
+
+            </div>
+
+        </button>
+
+
+        <!-- 03 -->
+
+       <button
+            id="openOnlyKnew"
+            class="archive-card"
+            type="button"
+        >
+
+            <span class="card-number">
+                03
+            </span>
+
+            <div class="card-content">
+
+                <p>
+                    THE TRUTH
+                </p>
+
+                <h3>
+                    If You<br>
+                    Only Knew
+                </h3>
+
+                <span class="open-label">
+                    OPEN →
+                </span>
+
+            </div>
+
+        </button>
+
+
+        <!-- 04 -->
+
+        <button
+            id="openAnotherUniverse"
+            class="archive-card"
+            type="button"
+        >
+
+            <span class="card-number">
+                04
+            </span>
+
+            <div class="card-content">
+
+                <p>
+                    THE OTHER LIFE
+                </p>
+
+                <h3>
+                    In Another<br>
+                    Universe
+                </h3>
+
+                <span class="open-label">
+                    OPEN →
+                </span>
+
+            </div>
+
+        </button>
+
+
+        <!-- 05 -->
+
+       <button
+                id="open2AM"
+                class="archive-card"
+                type="button"
+        >
+
+            <span class="card-number">
+                05
+            </span>
+
+            <div class="card-content">
+
+                <p>
+                    AFTER MIDNIGHT
+                </p>
+
+                <h3>
+                    2:00 AM<br>
+                    Thoughts
+                </h3>
+
+                <span class="open-label">
+                    OPEN →
+                </span>
+
+            </div>
+
+        </button>
+
+
+    </section>
+
+
+    <footer class="archive-footer">
+    <span class="footer-line"></span>
 
     <p>
-    for the words I never said,<br>
-    the letters I never sent,<br>
-    and the feelings that needed somewhere to exist.
-</p>
+        SOMEWHERE BETWEEN SILENCE AND WORDS
+    </p>
 
-<a href="archive.html" class="enter-link">enter quietly →</a>
+    <span class="footer-line"></span>
+</footer>
+
+</main>
+
+
+
+<!-- =========================================
+     03 — THINGS I NEVER SAID
+========================================= -->
+
+<main
+    id="thingsView"
+    class="view things-view"
+>
+
+    <header class="inner-header">
+
+        <button
+            id="backArchive"
+            class="text-button"
+            type="button"
+        >
+            ← BACK TO THE ARCHIVE
+        </button>
+
+
+        <div class="logo">
+            UNSPOKEN
+        </div>
+
+    </header>
+
+
+    <section class="things-intro">
+
+        <p class="things-eyebrow">
+            01 — THE WORDS
+        </p>
+
+
+        <h2>
+            Things I<br>
+            Never Said
+        </h2>
+
+
+        <p class="things-description">
+            The thoughts I kept swallowing.<br>
+            The words that never made it past my lips.
+        </p>
+
+    </section>
+
+
+    <!-- JavaScript creates the tiles -->
+
+    <section
+        id="confessionGrid"
+        class="confession-grid"
+    ></section>
+
+
+    <section class="things-ending">
+
+        <p>
+            Maybe some things were never meant to be said.
+        </p>
+
+        <p>
+            Maybe they were only meant to be felt.
+        </p>
+
+         <p class="between-lines">
+        But if you ever find this, I hope you know, you were between almost every line.
+        </p>
+
+        <span>
+            — HYUNOO —
+        </span>
+
+    </section>
+
+
+</main>
+
+<!-- ============================================
+     04 — LETTERS I NEVER SENT
+============================================= -->
+
+<main
+    id="lettersView"
+    class="view things-view"
+>
+
+    <!-- HEADER -->
+
+    <header class="inner-header">
+
+        <button
+            id="backArchiveLetters"
+            class="text-button"
+            type="button"
+        >
+            ← BACK TO THE ARCHIVE
+        </button>
+
+
+        <div class="logo">
+            UNSPOKEN
+        </div>
+
+    </header>
+
+
+    <!-- INTRO -->
+
+    <section class="things-intro">
+
+        <p class="things-eyebrow">
+            02 — THE LETTERS
+        </p>
+
+        <h2>
+            Letters I<br>
+            Never Sent
+        </h2>
+
+        <p class="things-description">
+            Words written for someone.<br>
+            Even if they never reached them.
+        </p>
+
+    </section>
+
+
+    <!-- LETTER TILES WILL BE CREATED BY JAVASCRIPT -->
+
+    <section
+        id="lettersGrid"
+        class="confession-grid"
+    ></section>
+
+
+    <!-- FOOTER -->
+
+    <section class="things-ending">
+
+        <p>
+            Some words were written to be felt.
+        </p>
+
+        <p>
+            Even if they were never sent.
+        </p>
+
+        <span>
+            — HYUNOO —
+        </span>
+
+    </section>
+
+</main>
+
+<!-- ============================================
+     05 — IF YOU ONLY KNEW
+============================================= -->
+
+<main
+    id="onlyKnewView"
+    class="view only-knew-view"
+>
+    <!-- HEADER -->
+
+    <header class="inner-header">
+        <button
+            id="backArchiveOnlyKnew"
+            class="text-button"
+            type="button"
+        >
+            ← BACK TO THE ARCHIVE
+        </button>
+
+        <div class="logo">
+            UNSPOKEN
+        </div>
+    </header>
+
+
+    <!-- INTRO -->
+
+    <section class="only-knew-intro">
+
+        <p class="only-knew-eyebrow">
+            03 — THE TRUTH
+        </p>
+
+        <h2>
+            If You<br>
+            Only Knew
+        </h2>
+
+        <p class="only-knew-description">
+            Some things were easier to leave<br>
+            somewhere between knowing and saying.
+        </p>
+
+    </section>
+
+
+    <!-- STACK -->
+
+    <section class="only-knew-stack-section">
+
+        <div
+            id="onlyKnewStack"
+            class="only-knew-stack"
+        ></div>
+
+
+        <!-- CONTROLS -->
+
+        <div class="only-knew-controls">
+
+            <button
+                id="onlyKnewPrevious"
+                class="only-knew-control"
+                type="button"
+            >
+                ← PREVIOUS
+            </button>
+
+
+            <span
+                id="onlyKnewProgress"
+                class="only-knew-progress"
+            >
+                01 / 34
+            </span>
+
+
+            <button
+                id="onlyKnewNext"
+                class="only-knew-control"
+                type="button"
+            >
+                NEXT →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ENDING -->
+
+    <section class="things-ending">
+
+        <p>
+            Maybe some truths were never meant
+            to become questions.
+        </p>
+
+        <p>
+            Maybe they only needed somewhere to exist.
+        </p>
+
+        <span>
+            — HYUNOO —
+        </span>
+
+    </section>
+
+</main>
+
+<!-- ============================================
+     06 — IN ANOTHER UNIVERSE
+============================================= -->
+
+<main
+    id="anotherUniverseView"
+    class="view another-universe-view"
+>
+
+    <!-- HEADER -->
+
+    <header class="another-universe-header">
+
+        <button
+            id="backArchiveUniverse"
+            class="text-button"
+            type="button"
+        >
+            ← BACK
+        </button>
+
+        <div class="logo">
+            UNSPOKEN
+        </div>
+
+    </header>
+
+
+    <!-- MAIN LAYOUT -->
+
+    <div class="another-universe-layout">
+
+
+        <!-- ==============================
+             LEFT SIDE
+        =============================== -->
+
+        <section class="universe-story">
+
+            <p class="universe-section-number">
+                04
+            </p>
+
+            <p class="universe-eyebrow">
+                THE OTHER LIFE
+            </p>
+
+            <h1>
+                In Another<br>
+                Universe
+            </h1>
+
+            <div class="universe-introduction">
+
+                <p>
+                    In another universe, maybe things were different.
+                </p>
+
+                <p>
+                    Maybe the timing was kinder.
+                </p>
+
+                <p>
+                    Maybe we were closer.
+                </p>
+
+                <p>
+                    Maybe it was easier.
+                </p>
+
+                <p class="universe-intro-ending">
+                    Here are the little things I imagine
+                    in that other life.
+                </p>
+
+            </div>
+
+
+
+            <!-- LEFT CLOSING QUOTE -->
+
+            <blockquote class="universe-quote">
+
+                <p>
+                    Same stars.
+                </p>
+
+                <p>
+                    Different skies.
+                </p>
+
+                <p>
+                    But you, in all of them.
+                </p>
+
+            </blockquote>
+
+            <div class="universe-signature">
+
+                <span></span>
+
+                <p>
+                    HYUNOO
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==============================
+             RIGHT SIDE
+        =============================== -->
+
+        <section class="universe-moments">
+
+
+            <!-- 01 -->
+
+            <article class="universe-moment">
+
+                <span>01</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        we live in the same city.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 02 -->
+
+            <article class="universe-moment">
+
+                <span>02</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        we don't have to count hours just to talk.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 03 -->
+
+            <article class="universe-moment">
+
+                <span>03</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        I can ask you to dinner without thinking about flights first.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 04 -->
+
+            <article class="universe-moment">
+
+                <span>04</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        we share ordinary days, not only the small pieces of them we manage to give each other.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 05 -->
+
+            <article class="universe-moment">
+
+                <span>05</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        I bring you coffee on the mornings when life feels a little too heavy.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 06 -->
+
+            <article class="universe-moment">
+
+                <span>06</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        we get lost somewhere new and don't mind because we're together.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 07 -->
+
+            <article class="universe-moment">
+
+                <span>07</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        I get to know the quiet, everyday version of you that doesn't fit inside messages and calls.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 08 -->
+
+            <article class="universe-moment">
+
+                <span>08</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        we have a favorite restaurant, a familiar street, and a place that somehow becomes ours.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 09 -->
+
+            <article class="universe-moment">
+
+                <span>09</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        when you're tired, sick, or overwhelmed, I don't have to wish I could be there.
+                    </p>
+
+                    <p>
+                        I simply am.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 10 -->
+
+            <article class="universe-moment">
+
+                <span>10</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        our goodbyes happen at the end of the night, not because one of us is waking while the other is falling asleep.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 11 -->
+
+            <article class="universe-moment">
+
+                <span>11</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        we don't have to turn everything we want to do together into a plan for someday.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 12 -->
+
+            <article class="universe-moment">
+
+                <span>12</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        life makes it a little easier for two people to choose each other.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 13 -->
+
+            <article class="universe-moment">
+
+                <span>13</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        maybe I'm the person you come home to.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- 14 -->
+
+            <article class="universe-moment">
+
+                <span>14</span>
+
+                <div>
+                    <strong>
+                        In another universe,
+                    </strong>
+
+                    <p>
+                        it's still you and me.
+                    </p>
+
+                    <p>
+                        Just a little closer.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <!-- ==============================
+                 FULL CLOSING
+            =============================== -->
+
+            <section class="universe-closing">
+
+                <div class="universe-moon">
+                    ☾
+                </div>
+
+                <div class="universe-closing-text">
+
+                    <p>
+                        I don't know if that universe exists.
+                    </p>
+
+                    <p>
+                        Maybe somewhere, there is a version of us
+                        who never had to wonder what this could have been.
+                    </p>
+
+                    <p>
+                        Maybe they got the timing right.
+                    </p>
+
+                    <p>
+                        Maybe they got the distance right.
+                    </p>
+
+                    <p>
+                        Maybe they were given the ordinary days
+                        that we could only imagine.
+                    </p>
+
+                    <p>
+                        But I'm grateful for this universe too.
+                    </p>
+
+                    <p>
+                        Because out of all the lives I could have lived,
+                        all the people I could have met,
+                        and all the ways our paths could have missed
+                        each other completely,
+                        somehow mine still found yours.
+                    </p>
+
+                    <p>
+                        Even from this far away.
+                    </p>
+
+                    <p>
+                        And maybe that's enough for me to be grateful
+                        that this universe gave me you at all.
+                    </p>
+
+                    <div class="universe-closing-signature">
+
+                        <span></span>
+
+                        <strong>
+                            HYUNOO
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </div>
+
+</main>
+
+<!-- ============================================
+     LETTER READER
+============================================= -->
+
+<main
+    id="letterReaderView"
+    class="view letter-reader-view"
+>
+
+    <!-- HEADER -->
+
+    <header class="inner-header">
+
+        <button
+            id="backToLetters"
+            class="text-button"
+            type="button"
+        >
+            ← BACK TO THE LETTERS
+        </button>
+
+
+        <div class="logo">
+            UNSPOKEN
+        </div>
+
+    </header>
+
+    <!-- RIGHT-SIDE EDITORIAL NOTES -->
+
+<aside class="letter-side-notes">
+
+    <div class="letter-side-top">
+        <span class="vertical-line"></span>
+
+        <p>
+            Words for a softer tomorrow.
+        </p>
+    </div>
+
+
+    <div class="letter-side-quote">
+
+        <p>
+            Some people don’t just<br>
+            pass through your days,<br>
+            they stay in the quiet.
+        </p>
+
+        <span class="quote-line"></span>
+
+    </div>
+
+</aside>
+
+    <!-- LETTER -->
+
+    <article class="letter-reader">
+
+        <div class="letter-reader-meta">
+
+            <span id="letterReaderNumber">
+                01
+            </span>
+
+            <span>
+                UNSENT
+            </span>
+
+        </div>
+
+
+        <h1 id="letterReaderTitle">
+            Letter Title
+        </h1>
+
+
+        <div class="letter-reader-divider"></div>
+
+
+        <div
+            id="letterReaderBody"
+            class="letter-reader-body"
+        ></div>
+
+    </article>
+
+</main>
+
+
+<!-- ============================================
+     07 — 2:00 AM THOUGHTS
+============================================= -->
+
+<main
+    id="twoAMView"
+    class="view two-am-view"
+>
+
+    <!-- HEADER -->
+
+    <header class="inner-header">
+
+        <button
+            id="backArchive2AM"
+            class="text-button"
+            type="button"
+        >
+            ← BACK TO THE ARCHIVE
+        </button>
+
+        <div class="logo">
+            UNSPOKEN
+        </div>
+
+    </header>
+
+
+    <!-- OPENING -->
+
+    <section class="two-am-opening">
+
+        <div class="two-am-opening-meta">
+
+            <span>
+                05
+            </span>
+
+            <span>
+                2:00 AM
+            </span>
+
+        </div>
+
+
+        <div class="two-am-opening-meta two-am-opening-meta-secondary">
+
+            <span>
+                AFTER MIDNIGHT
+            </span>
+
+            <span>
+                SUNDAY
+            </span>
+
+        </div>
+
+
+        <div class="two-am-moon">
+            ☾
+        </div>
+
+
+        <h1>
+            2:00 AM<br>
+            Thoughts
+        </h1>
+
+
+        <p class="two-am-subtitle">
+            The things I only admit<br>
+            when the world gets quiet.
+        </p>
+
+    </section>
+
+
+    <!-- TIMELINE -->
+
+    <section class="two-am-timeline">
+
+        <div class="two-am-line"></div>
+
+        <div
+            id="twoAMThoughts"
+            class="two-am-thoughts"
+        ></div>
+
+    </section>
+
+
+    <!-- 3:00 AM ENDING -->
+
+    <section class="two-am-goodnight">
+
+        <p class="two-am-goodnight-time">
+            3:00 AM
+        </p>
+
+        <div class="two-am-goodnight-text">
+
+            <p>
+                <em>Goodnight, you.</em>
+            </p>
+
+            <p>
+                <em>Wherever you are.</em>
+            </p>
+
+        </div>
+
+        <div class="two-am-ending-moon">
+            ☾
+        </div>
+
+        <p class="two-am-signature">
+            HYUNOO
+        </p>
+
+    </section>
+
+
+    <!--
+        INTENTIONAL EMPTY SPACE
+
+        The reader thinks the page
+        has already ended.
+    -->
+
+    <div class="two-am-afterthought-space"></div>
+
+
+    <!-- 3:07 AM -->
+
+    <section class="two-am-afterthought">
+
+        <p class="two-am-afterthought-time">
+            3:07 AM
+        </p>
+
+        <p class="two-am-afterthought-text">
+            <em>...I still wish it were you.</em>
+
+            <span
+                class="two-am-cursor"
+                aria-hidden="true"
+            ></span>
+        </p>
+
+    </section>
+
+
+    <div class="two-am-final-space"></div>
+
+</main>
+
+
+<!-- =========================================
+     AUDIO
+========================================= -->
+
+<audio
+    id="backgroundMusic"
+    loop
+    preload="auto"
+>
+    <source
+        src="audio/unspoken.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<button
+    id="musicToggle"
+    class="music-toggle"
+    type="button"
+    aria-label="Toggle background music"
+>
+    ♪
+</button>
+
+
 
 <script src="script.js"></script>
+
 
 </body>
 </html>
